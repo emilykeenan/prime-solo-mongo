@@ -48,7 +48,7 @@ db.orders.find({orderDate: {$gt: new Date('2016-01-01')}})
 db.orders.find( {"lineItems.quantity": {$lt:50}, "lineItems.quantity":{$gt:5} } )
 
 // Update one of your line items to 42.99. HINT: Look at dot notation
-db.orders.update( {"lineItems.unitPrice": 5.99}, {$set: {"unitPrice":42.99 } } )
+db.orders.update( {lineItems: {unitPrice: 5.99}}, {$set: {lineItems: {unitPrice:42.99} } } );
 
 // Remove one of your orders.
 db.orders.remove({orderTotal: 12.00})
